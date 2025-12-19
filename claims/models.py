@@ -12,7 +12,7 @@ class Claim(models.Model):
 
     name = models.CharField(max_length=25, verbose_name='Имя', help_text='Имя пассажира')
     surname = models.CharField(max_length=50, verbose_name='Фамилия', help_text='Фамилия пассажира')
-    booking_reference = models.CharField(unique=True, validators=[RegexValidator(r'[A-Za-Z0-9]{8}')],
+    booking_reference = models.CharField(unique=True, validators=[RegexValidator(r'[A-Za-z0-9]{8}')],
                                          verbose_name='Код бронирования',
                                          help_text='Код бронирования состоит из 8 символов (латинские буквы и цифры)')
     status = models.CharField(choices=STATUSES, default=STATUSES[0][1], verbose_name='Статус')
