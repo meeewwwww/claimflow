@@ -9,9 +9,12 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="card-title">Пассажирам</h2>
-                                <p class="card-text">Подайте претензию о задержке или отмене рейса. Рассчитаем компенсацию по ФАП-82 автоматически.</p>
-                                Подать претензию
-                                <!-- <a href="{ url 'passenger:create_claim' }" class="btn btn-primary btn-lg"></a> -->
+                                <p class="card-text">Подайте претензию о задержке или отмене рейса. Рассчитаем компенсацию по ФАП-82 автоматически.*</p>
+                                <div class="mt-2">
+                                    <a href="{% url 'passenger:send_claim' %}" class="btn btn-primary">
+                                        Подать претензию
+                                    </a>
+                                </div>
                                 <div class="mt-2">
                                     <a href="#" class="btn btn-outline-secondary">
                                         Проверить статус претензии
@@ -24,7 +27,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <h2 class="card-title">Сотрудникам</h2>
-                                <p class="card-text">Войдите во внутреннюю систему для обработки претензий, согласования выплат и ведения документооборота.</p>
+                                <p class="card-text">Войдите во внутреннюю систему для обработки претензий, согласования компенсаций и ведения документооборота.</p>
                                 Войти в систему
                                 <!-- <a href="{ url 'employee:login' }" class="btn btn-success btn-lg"></a> -->
                                 <p class="mt-2 small text-muted">Доступ только для персонала</p>
@@ -34,6 +37,7 @@
                 </div>
                 <div class="mt-5 text-muted">
                     <p>Демо-проект системы урегулирования претензий. Расчет компенсации по ФАП-82.</p>
+                    <p><i>*Компенсация по ФАП-82 будет рассчитана и отображена на экране после отправки претензии.</i></p>
                 </div>
             </div>
         </div>
