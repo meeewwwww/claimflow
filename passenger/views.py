@@ -22,6 +22,7 @@ class SendClaim(DefaultDataMixin, FormView):
             context[item] = self.additional_data[item]
         flights = Flight.objects.all()
         context['flights'] = flights
+        context['title'] = 'ClaimFlow - Подача претензии'
         return context
 
 

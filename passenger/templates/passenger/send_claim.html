@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 {% block content %}
-<form method="post" enctype="multipart/form-data" class="container mt-5">
+<form method="post" enctype="multipart/form-data" class="container mt-5" onsubmit="return validateForm()">
     {% csrf_token %}
 
     <h2 class="mb-4">Подача претензии</h2>
@@ -10,13 +10,13 @@
         <div class="col-md-6 mb-3">
             <label for="id_name" class="form-label">Имя *</label>
             <input type="text" class="form-control" id="id_name" name="name" required>
-            <div class="form-text">Имя пассажира</div>
+            <div class="form-text">Имя пассажира как в загранпаспорте</div>
         </div>
 
         <div class="col-md-6 mb-3">
             <label for="id_surname" class="form-label">Фамилия *</label>
             <input type="text" class="form-control" id="id_surname" name="surname" required>
-            <div class="form-text">Фамилия пассажира</div>
+            <div class="form-text">Фамилия пассажира как в загранпаспорте</div>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
             <label for="id_booking_reference" class="form-label">Код бронирования *</label>
             <input type="text" class="form-control" id="id_booking_reference" name="booking_reference"
                    pattern="[A-Za-z0-9]{8}" maxlength="8" required>
-            <div class="form-text">8 символов (латинские буквы и цифры)</div>
+            <div class="form-text">8 символов (латинские заглавные буквы и цифры)</div>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -71,4 +71,31 @@
     </div>
     <p></p>
 </form>
+
+<script>
+function validateForm() {
+    // Имя
+    const name = document.getElementById('id_name').value;
+    if (!/^[A-Z]+$/.test(name)) {
+        alert('Имя: только заглавные латинские буквы');
+        return false;
+    }
+
+    // Фамилия
+    const surname = document.getElementById('id_surname').value;
+    if (!/^[A-Z]+$/.test(surname)) {
+        alert('Фамилия: только заглавные латинские буквы');
+        return false;
+    }
+
+    // Код бронирования
+    const booking = document.getElementById('id_booking_reference').value;
+    if (!/^[A-Z0-9]{8}$/.test(booking)) {
+        alert('Код бронирования: ровно 8 символов (латинские буквы и цифры)');
+        return false;
+    }
+
+    return true;
+}
+</script>
 {% endblock %}
