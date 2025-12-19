@@ -9,7 +9,7 @@ class Flight(models.Model):
     departure_dt_fact = models.DateTimeField(default='2025-12-18 18:00:00', verbose_name='Фактическое время вылета')
     arrival_dt_plan = models.DateTimeField(default='2025-12-18 18:00:00', verbose_name='Планируемое время прилета')
     arrival_dt_fact = models.DateTimeField(default='2025-12-18 18:00:00', verbose_name='Фактическое время прилета')
-    msc_time = models.TimeField(blank=True, null=True)
+    time_of_delay = models.TimeField(blank=True, null=True)
     comment = models.TextField(blank=True, null=True, verbose_name='Комментарий к рейсу',
                                help_text='Введите причину задержки вылета, прилета рейса или иные комментарии')
 
