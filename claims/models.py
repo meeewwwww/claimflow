@@ -1,7 +1,7 @@
 from django.core.validators import RegexValidator
 from django.db import models
 
-from employee.models import Flight
+from core.models import Flight
 
 
 class Claim(models.Model):
