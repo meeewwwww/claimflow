@@ -1,4 +1,5 @@
 class DefaultDataMixin:
+    '''Base data for title, header, etc.'''
     additional_data = {
         'title': 'ClaimFlow - Система урегулирования претензий',
         'menu': [{'title': 'Главная', 'url_name': 'start_page'},
