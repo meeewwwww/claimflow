@@ -77,25 +77,50 @@ function validateForm() {
     // Имя
     const name = document.getElementById('id_name').value;
     if (!/^[A-Z]+$/.test(name)) {
-        alert('Имя: только заглавные латинские буквы');
+        alert('Имя должно содержать только заглавные латинские буквы.');
         return false;
     }
 
     // Фамилия
     const surname = document.getElementById('id_surname').value;
     if (!/^[A-Z]+$/.test(surname)) {
-        alert('Фамилия: только заглавные латинские буквы');
+        alert('Фамилия должна содержать только заглавные латинские буквы.');
         return false;
     }
 
     // Код бронирования
     const booking = document.getElementById('id_booking_reference').value;
     if (!/^[A-Z0-9]{8}$/.test(booking)) {
-        alert('Код бронирования: ровно 8 символов (латинские буквы и цифры)');
+        alert('Код бронирования должен содержать ровно 8 символов (латинские буквы и цифры).');
         return false;
     }
 
     return true;
 }
+
+// Автоматический перевод в верхний регистр для полей Имя, Фамилия и Код бронирования
+document.addEventListener('DOMContentLoaded', function() {
+    const nameField = document.getElementById('id_name');
+    const surnameField = document.getElementById('id_surname');
+    const bookingField = document.getElementById('id_booking_reference');
+
+    if (nameField) {
+        nameField.addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    }
+
+    if (surnameField) {
+        surnameField.addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    }
+
+    if (bookingField) {
+        bookingField.addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    }
+});
 </script>
 {% endblock %}
