@@ -5,13 +5,13 @@
         <div class="col-lg-8">
             <h2>Рейс задержан на: {{ time_of_delay }} </h2>
             {% for sentence in compensation %}
-                {% if forloop.first %}
-                <p class="lead">{{ sentence }}</p>
-                {% else %}
-                <ul><li>{{ sentence }}</li></ul>
-                {% endif %}
-                {% empty %}
-                <p class="lead">В соответствии с ФАП-82 компенсации не предоставляются.</p>
+            {% if forloop.first %}
+            <p class="lead">{{ sentence }}</p>
+            {% else %}
+            <ul><li>{{ sentence }}</li></ul>
+            {% endif %}
+            {% empty %}
+            <p class="lead">В соответствии с ФАП-82 компенсации не предоставляются.</p>
             {% endfor %}
         </div>
     </div>
