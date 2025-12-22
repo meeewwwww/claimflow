@@ -1,9 +1,10 @@
 {% extends 'core/base.html' %}
 {% block content %}
+{% load custom_tags %}
 <div class="container px-4">
     <div class="row gx-4 justify-content-center">
         <div class="col-lg-8">
-            <h2>Рейс задержан на: {{ time_of_delay }} </h2>
+            <h2>Рейс задержан на: {{ time_of_delay|timedelta_to_hours }} </h2>
             {% for sentence in compensation %}
             {% if forloop.first %}
             <p class="lead">{{ sentence }}</p>
