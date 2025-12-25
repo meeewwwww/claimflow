@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
@@ -18,6 +19,12 @@ class SendClaim(DefaultDataMixin, FormView):
         flight_obj = form.cleaned_data['flight_number']
         flight_obj.time_of_delay = DelayCalculator.calculate_delay_time(flight_obj)
         return super().form_valid(form)
+
+    #  Проработать логику обработки формы, содержащей код бронирования, уже существующий в БД
+    def form_invalid(self, form):
+        if 'booking_reference' not in form.cleaned_data:
+            return redirect('passenger:fail_send_claim')
+        super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()

@@ -1,4 +1,7 @@
 {% extends 'core/base.html' %}
 {% block content %}
-
+<div class="alert" style="text-align: center">
+    <p>Жалоба по данному бронированию была направлена ранее. Пожалуйста, дождитесь результатов рассмотрения.
+    <p>Вы можете проверить статус рассмотрения перейдя по <a href="{% url 'start_page' %}">ссылке</a>.
+</div>
 {% endblock %}
